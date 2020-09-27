@@ -1,0 +1,26 @@
+#code
+T=int(input())
+while(T):
+    push=[]
+    str1=input()
+    str1=list(str1)
+    top=-1
+    for ch2 in str1:
+        if(top==-1):
+            if(ch2=='}' or ch2==')' or ch2==']'):
+                top=0
+                break
+        if(ch2=='{' or ch2=='(' or ch2=='['):
+            push.append(ch2)
+            top+=1
+        if(top==-1):
+            break
+        elif(((ch2=='}') and push[top]=='{') or ((ch2==')') and push[top]=='(') or ((ch2==']') and push[top]=='[')):
+            push.pop(top)
+            top-=1
+        elif(((ch2=='}') and push[top]!='{') or ((ch2==')') and push[top]!='(') or ((ch2==']') and push[top]!='[')):
+            break
+        
+       
+    print("balanced") if (top==-1) else print("not balanced")
+    T-=1
